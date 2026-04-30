@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Frizerski salon Desire — Vojina Bakića 12, Središće Zagreb</title>
+<meta name="description" content="Frizerski salon Desire — žensko i muško frizerstvo, boja, pramenovi. Vojina Bakića 12, Središće Zagreb. Rezerviraj termin online.">
+<meta name="theme-color" content="#f7f3ee">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Desire Salon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#f7f3ee;--warm:#ede8df;--sand:#cfc8bc;--ink:#1a1614;--ink2:#2d2521;
+  --muted:#5c4e46;--gold:#a07850;--gold2:#c49a68;--rose:#b87060;--dark:#130f0d;--r:12px;
+}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:'Jost',sans-serif;overflow-x:hidden;font-weight:400}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}button{font-family:'Jost',sans-serif;cursor:pointer}
+[data-reveal]{opacity:0;transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+[data-reveal="up"]{transform:translateY(48px)}[data-reveal="left"]{transform:translateX(-40px)}[data-reveal="right"]{transform:translateX(40px)}[data-reveal="scale"]{transform:scale(.94)}
+[data-reveal].visible{opacity:1;transform:none}
+[data-delay="1"]{transition-delay:.1s}[data-delay="2"]{transition-delay:.2s}[data-delay="3"]{transition-delay:.3s}[data-delay="4"]{transition-delay:.4s}[data-delay="5"]{transition-delay:.5s}
+#sp{position:fixed;top:0;left:0;height:1.5px;background:var(--gold);z-index:300;width:0%;transition:width .08s}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:1.4rem 1.6rem;display:flex;align-items:center;justify-content:space-between;transition:all .4s}
+nav.solid{background:rgba(247,243,238,.96);backdrop-filter:blur(20px);padding:1rem 1.6rem;border-bottom:1px solid rgba(26,22,20,.07)}
+.nav-logo{font-family:'Cormorant',serif;font-size:1.35rem;font-weight:500;letter-spacing:.5px;color:var(--ink)}.nav-logo em{color:var(--gold);font-style:italic}
+.nav-center{display:none;gap:3rem;list-style:none}.nav-center a{font-size:.72rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink);transition:color .2s}.nav-center a:hover{color:var(--gold)}
+.nav-book{display:none;background:var(--ink);color:var(--cream);padding:.55rem 1.4rem;border-radius:100px;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;border:none;transition:background .2s}.nav-book:hover{background:var(--ink2)}
+.nav-burger{display:flex;flex-direction:column;gap:5px;background:none;border:none;padding:.3rem}
+.nav-burger span{display:block;width:22px;height:1px;background:var(--ink);transition:all .3s}
+.nav-burger.active span:nth-child(1){transform:translateY(6px) rotate(45deg)}.nav-burger.active span:nth-child(2){opacity:0}.nav-burger.active span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.nav-overlay{position:fixed;inset:0;background:rgba(26,22,20,.4);z-index:199;opacity:0;pointer-events:none;transition:opacity .3s;backdrop-filter:blur(4px)}.nav-overlay.show{opacity:1;pointer-events:all}
+.nav-drawer{position:fixed;top:0;right:-100%;width:72%;max-width:280px;height:100dvh;background:var(--cream);border-left:1px solid var(--sand);z-index:200;transition:right .38s cubic-bezier(.16,1,.3,1);padding:5rem 2rem 3rem;display:flex;flex-direction:column;gap:.5rem}.nav-drawer.open{right:0}
+.nav-drawer a{display:block;padding:.9rem 0;font-size:1.05rem;letter-spacing:1px;color:var(--muted);border-bottom:1px solid rgba(26,22,20,.07);transition:color .2s}.nav-drawer a:hover{color:var(--ink)}
+.nav-drawer .drawer-book{margin-top:1.5rem;background:var(--ink);color:var(--cream);text-align:center;border-radius:100px;padding:.9rem;font-size:.8rem;letter-spacing:1.5px;text-transform:uppercase;border:none!important}
+/* HERO */
+#hero{display:flex;flex-direction:column;background:var(--cream)}
+.hero-img-side{position:relative;width:100%;height:55vw;min-height:220px;max-height:380px;overflow:hidden;flex-shrink:0}
+.hero-img-side img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%;opacity:0;transition:opacity .9s ease-in-out}
+.hero-img-side img.active{opacity:1}
+.slide-dots{position:absolute;bottom:.8rem;right:1rem;display:flex;gap:.4rem;z-index:3}
+.slide-dot{width:5px;height:5px;border-radius:50%;background:rgba(247,243,238,.45);transition:all .3s;cursor:pointer}
+.slide-dot.active{background:var(--cream);width:16px;border-radius:3px}
+.hero-img-badge{position:absolute;bottom:1.2rem;left:1.4rem;background:var(--cream);padding:.7rem 1.1rem;z-index:2}
+.hib-n{font-family:'Cormorant',serif;font-size:1.7rem;font-weight:500;color:var(--ink);line-height:1}
+.hib-l{font-size:.6rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink2)}
+.hero-body{display:flex;flex-direction:column;padding:2.4rem 1.6rem 3rem;background:var(--cream)}
+.hero-tag{display:flex;align-items:center;gap:.8rem;margin-bottom:1.4rem;opacity:0;animation:aUp .6s .15s forwards}
+.hero-tag .tl{width:24px;height:1px;background:var(--gold);flex-shrink:0}
+.hero-tag span{font-size:.62rem;letter-spacing:3px;text-transform:uppercase;color:var(--ink2)}
+.hero-h1{font-family:'Cormorant',serif;font-size:clamp(3rem,11vw,6.5rem);font-weight:300;line-height:.92;letter-spacing:-2px;color:var(--ink);opacity:0;animation:aUp .9s .3s forwards}
+.hero-h1 em{font-style:italic;color:var(--gold)}
+.hero-svcs{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-top:1.4rem;opacity:0;animation:aUp .7s .5s forwards}
+.hero-svcs span{font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+.hero-svcs .dot{width:3px;height:3px;border-radius:50%;background:var(--gold);flex-shrink:0}
+.hero-actions{display:flex;flex-direction:column;gap:.8rem;margin-top:2rem;opacity:0;animation:aUp .7s .65s forwards}
+.btn-dark{background:var(--ink);color:var(--cream);padding:.9rem 2rem;border-radius:100px;font-size:.75rem;letter-spacing:1.5px;text-transform:uppercase;border:none;display:flex;align-items:center;justify-content:center;gap:.6rem;transition:all .3s}.btn-dark:hover{background:var(--ink2);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--ink);padding:.9rem 2rem;border-radius:100px;font-size:.75rem;letter-spacing:1.5px;text-transform:uppercase;border:1px solid var(--sand);display:flex;align-items:center;justify-content:center;transition:all .2s}.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.hero-nums{display:flex;gap:2rem;margin-top:2.2rem;padding-top:1.8rem;border-top:1px solid var(--sand);opacity:0;animation:aUp .8s .8s forwards}
+.hnum .n{font-family:'Cormorant',serif;font-size:2rem;font-weight:500;color:var(--ink);line-height:1}.hnum .n sup{font-size:.85rem;color:var(--gold)}.hnum .l{font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--ink2);margin-top:.2rem}
+/* TICKER */
+.ticker{background:var(--ink);padding:.65rem 0;overflow:hidden}
+.ticker-track{display:flex;white-space:nowrap;animation:ticker 26s linear infinite}
+.ticker-item{display:flex;align-items:center;gap:2rem;padding:0 2rem;font-family:'Cormorant',serif;font-style:italic;font-size:.95rem;color:rgba(247,243,238,.65);flex-shrink:0}.ticker-item::before{content:'✦';font-style:normal;font-size:.5rem;color:var(--gold)}
+/* O NAMA */
+#o-nama{display:grid;grid-template-columns:1fr;background:var(--cream)}
+.about-img{position:relative;overflow:hidden;height:300px}.about-img img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.about-year{position:absolute;bottom:1.2rem;right:1.2rem;background:var(--cream);padding:.7rem 1.1rem;text-align:center}
+.about-year .y{font-family:'Cormorant',serif;font-size:2rem;font-weight:500;color:var(--ink);line-height:1}
+.about-year .yl{font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--ink2)}
+.about-text{padding:3rem 1.6rem}
+.tag-pill{display:inline-flex;align-items:center;gap:.6rem;margin-bottom:1.2rem}
+.tag-pill .tl{width:22px;height:1px;background:var(--gold)}.tag-pill span{font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--ink2)}
+.about-text h2{font-family:'Cormorant',serif;font-size:clamp(1.9rem,7vw,3rem);font-weight:400;line-height:1.1;letter-spacing:-.5px;color:var(--ink);margin-bottom:1.2rem}
+.about-text p{font-size:.9rem;color:var(--ink2);line-height:1.9;margin-bottom:.9rem}
+.about-feats{margin-top:1.5rem;display:flex;flex-direction:column;gap:.65rem}
+.afeat{display:flex;align-items:center;gap:.8rem;font-size:.83rem;color:var(--ink)}.afeat::before{content:'';width:16px;height:1px;background:var(--gold);flex-shrink:0}
+/* USLUGE */
+#usluge{background:var(--warm);padding:3.5rem 0}
+.usluge-header{padding:0 1.6rem 2.2rem}
+.usluge-header h2{font-family:'Cormorant',serif;font-size:clamp(2rem,8vw,3.5rem);font-weight:300;letter-spacing:-.5px;color:var(--ink)}.usluge-header h2 em{font-style:italic;color:var(--gold)}
+.usluge-scroll{display:flex;gap:1px;overflow-x:auto;padding:0 1.6rem 1.2rem;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory}.usluge-scroll::-webkit-scrollbar{display:none}
+.usluga-card{flex:0 0 250px;background:var(--cream);padding:2rem 1.6rem;scroll-snap-align:start;position:relative;overflow:hidden;transition:background .3s}
+.usluga-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold2));transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.usluga-card:hover{background:#e8e3da}.usluga-card:hover::after{transform:scaleX(1)}
+.uc-num{font-family:'Cormorant',serif;font-size:3.2rem;font-weight:300;color:rgba(26,22,20,.05);line-height:1;margin-bottom:.8rem}
+.uc-icon{font-size:1.5rem;margin-bottom:.9rem;display:block}
+.usluga-card h3{font-family:'Cormorant',serif;font-size:1.2rem;font-weight:500;color:var(--ink);margin-bottom:.4rem}.usluga-card p{font-size:.82rem;color:var(--ink2);line-height:1.7}
+.scroll-hint{display:flex;align-items:center;gap:.5rem;padding:.5rem 1.6rem 0;font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--sand)}.scroll-hint::after{content:'→';font-size:.85rem}
+/* RADNO VRIJEME */
+#radno{background:var(--cream);padding:3.5rem 1.6rem}
+.radno-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem;margin-top:2rem}
+.radno-card{background:var(--warm);border-radius:var(--r);padding:1.2rem 1.4rem;border:1px solid transparent;transition:border-color .2s}
+.radno-card.today{border-color:var(--gold)}
+.radno-day{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--ink2);margin-bottom:.3rem}
+.radno-time{font-family:'Cormorant',serif;font-size:1.4rem;font-weight:500;color:var(--ink)}
+.radno-time.closed{color:var(--sand);font-style:italic;font-size:1rem}
+.radno-badge{display:inline-block;font-size:.6rem;letter-spacing:1.5px;text-transform:uppercase;background:rgba(160,120,80,.12);color:var(--gold);padding:.15rem .55rem;border-radius:3px;margin-top:.3rem}
+/* REZERVACIJA */
+#rezervacija{background:var(--warm);padding:3.5rem 1.6rem}
+.rez-header{margin-bottom:2.2rem}.rez-header h2{font-family:'Cormorant',serif;font-size:clamp(2rem,8vw,3.2rem);font-weight:300;letter-spacing:-.5px;color:var(--ink)}.rez-header h2 em{font-style:italic;color:var(--gold)}.rez-header p{font-size:.88rem;color:var(--ink2);margin-top:.7rem;line-height:1.8}
+.rez-grid{display:grid;grid-template-columns:1fr;gap:1.8rem}
+.cal-wrap{background:var(--cream);padding:1.6rem;border-radius:var(--r)}
+.cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.1rem}.cal-head h4{font-family:'Cormorant',serif;font-size:1.15rem;font-weight:500;color:var(--ink)}
+.cal-arrow{background:none;border:1px solid var(--sand);color:var(--muted);width:30px;height:30px;border-radius:50%;font-size:.85rem;transition:all .2s;display:flex;align-items:center;justify-content:center}.cal-arrow:hover{border-color:var(--gold);color:var(--gold)}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+.cal-dname{text-align:center;font-size:.6rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);padding:.35rem 0}
+.cal-day{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:50%;font-size:.8rem;cursor:pointer;color:var(--ink2);transition:all .2s;position:relative;min-height:32px}
+.cal-day:not(.empty):not(.past):not(.closed):hover{background:rgba(160,120,80,.1);color:var(--ink)}.cal-day.today{color:var(--gold);font-weight:500}.cal-day.selected{background:var(--ink);color:var(--cream)!important}.cal-day.past,.cal-day.closed{opacity:.2;cursor:default}.cal-day.closed{text-decoration:line-through}.cal-day.empty{cursor:default}
+.cal-day.has-slots::after{content:'';position:absolute;bottom:1px;left:50%;transform:translateX(-50%);width:3px;height:3px;border-radius:50%;background:var(--gold)}.cal-day.full::after{background:var(--rose);opacity:.5}
+.slots-section{margin-top:1.1rem}.slots-label{font-size:.62rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink2);margin-bottom:.65rem}
+.slots-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.35rem}
+.slot{background:var(--warm);border:1px solid var(--sand);border-radius:6px;padding:.48rem;text-align:center;font-size:.75rem;cursor:pointer;color:var(--ink2);transition:all .2s}.slot:hover:not(.taken){border-color:var(--gold);color:var(--ink)}.slot.selected{background:var(--ink);border-color:var(--ink);color:var(--cream)}.slot.taken{opacity:.25;cursor:not-allowed;text-decoration:line-through}
+.book-form-wrap{background:var(--cream);border-radius:var(--r);padding:1.8rem 1.6rem}
+.book-form-wrap h3{font-family:'Cormorant',serif;font-size:1.45rem;font-weight:500;color:var(--ink);margin-bottom:.25rem}
+.form-sub{font-size:.78rem;color:var(--ink2);margin-bottom:1.6rem}
+.sel-badge{background:rgba(160,120,80,.1);border:1px solid rgba(160,120,80,.25);color:var(--gold);font-size:.75rem;padding:.45rem .85rem;border-radius:6px;margin-bottom:1.1rem;display:none}
+.fg{margin-bottom:.9rem}.fg label{display:block;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem}
+.fg input,.fg select,.fg textarea{width:100%;background:var(--warm);border:1px solid var(--sand);border-radius:8px;padding:.82rem 1rem;color:var(--ink);font-family:'Jost',sans-serif;font-size:.88rem;font-weight:400;outline:none;transition:border-color .2s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold)}.fg input::placeholder,.fg textarea::placeholder{color:var(--sand)}
+.fg select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%235c4e46' fill='none' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}
+.fg textarea{resize:none;height:75px}
+.submit-btn{width:100%;background:var(--ink);color:var(--cream);border:none;border-radius:100px;padding:.9rem;font-size:.75rem;letter-spacing:1.5px;text-transform:uppercase;transition:all .3s;margin-top:.4rem}.submit-btn:hover{background:var(--ink2)}.submit-btn:disabled{opacity:.4;cursor:not-allowed}
+.book-ok{display:none;text-align:center;padding:2.5rem 1rem}
+.book-ok .icon{font-size:2rem;margin-bottom:.8rem}.book-ok h4{font-family:'Cormorant',serif;font-size:1.5rem;color:var(--ink);margin-bottom:.35rem}.book-ok p{font-size:.8rem;color:var(--ink2)}
+.book-ok button{margin-top:1.4rem;background:none;border:1px solid var(--sand);color:var(--ink);border-radius:100px;padding:.65rem 1.6rem;font-size:.68rem;letter-spacing:1.5px;text-transform:uppercase;transition:all .2s}.book-ok button:hover{border-color:var(--gold);color:var(--gold)}
+/* KONTAKT */
+#kontakt{background:var(--dark);padding:4rem 1.6rem}
+#kontakt .tag-pill .tl{background:var(--gold)}#kontakt .tag-pill span{color:var(--cream)}
+.kontakt-h{font-family:'Cormorant',serif;font-size:clamp(2.2rem,8vw,3.5rem);font-weight:300;letter-spacing:-.5px;color:var(--cream);margin-bottom:2.2rem;line-height:1.05}.kontakt-h em{font-style:italic;color:var(--gold)}
+.kontakt-grid{display:grid;grid-template-columns:1fr;gap:.8rem;margin-bottom:2rem}
+.kcard{background:rgba(247,243,238,.04);border:1px solid rgba(247,243,238,.07);border-radius:10px;padding:1.1rem 1.3rem;display:flex;gap:.9rem;align-items:flex-start;transition:border-color .2s}.kcard:hover{border-color:rgba(160,120,80,.2)}
+.kcard-ic{font-size:1rem;flex-shrink:0;margin-top:.1rem}.kcard-label{font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:rgba(247,243,238,.55);margin-bottom:.15rem}.kcard-val{font-size:.85rem;color:var(--cream);line-height:1.5}.kcard-val a{color:var(--cream);transition:color .2s}.kcard-val a:hover{color:var(--gold)}
+.map-box{border-radius:var(--r);overflow:hidden;height:240px;border:1px solid rgba(247,243,238,.07);filter:grayscale(1) invert(1) contrast(.8)}.map-box iframe{width:100%;height:100%;border:none}
+footer{background:var(--dark);border-top:1px solid rgba(247,243,238,.05);padding:1.8rem 1.6rem;display:flex;flex-direction:column;gap:.7rem;align-items:center;text-align:center}
+.foot-logo{font-family:'Cormorant',serif;font-size:1.1rem;font-weight:500;color:var(--cream)}.foot-logo em{color:var(--gold);font-style:italic}
+.foot-copy{font-size:.65rem;color:rgba(247,243,238,.5);letter-spacing:.3px;line-height:1.6}
+.foot-links{display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center}.foot-links a{font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(247,243,238,.55);transition:color .2s}.foot-links a:hover{color:var(--gold)}
+.fab{position:fixed;bottom:max(1.5rem,env(safe-area-inset-bottom,1.5rem));right:1.5rem;background:var(--ink);color:var(--cream);width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.15rem;box-shadow:0 6px 20px rgba(26,22,20,.2);z-index:90;text-decoration:none;transition:all .3s;animation:fabF 3s ease-in-out infinite}.fab:hover{background:var(--gold)}
+.admin-btn{position:fixed;bottom:max(1.5rem,env(safe-area-inset-bottom,1.5rem));left:1.5rem;background:rgba(26,22,20,.65);color:rgba(247,243,238,.45);width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;z-index:90;border:1px solid rgba(247,243,238,.09);transition:all .2s;backdrop-filter:blur(10px)}.admin-btn:hover{color:var(--gold);border-color:rgba(160,120,80,.25)}
+#admin-panel{display:none;position:fixed;inset:0;z-index:500;background:rgba(26,22,20,.65);backdrop-filter:blur(12px);overflow-y:auto;-webkit-overflow-scrolling:touch}
+.admin-wrap{max-width:800px;margin:1.2rem;background:var(--cream);border-radius:16px;overflow:hidden}
+.admin-head{background:var(--warm);padding:1.3rem 1.6rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--sand)}.admin-head h2{font-family:'Cormorant',serif;font-size:1.35rem;font-weight:500;color:var(--ink)}
+.admin-x{background:none;border:1px solid var(--sand);color:var(--muted);width:32px;height:32px;border-radius:50%;font-size:.95rem;transition:all .2s}.admin-x:hover{border-color:var(--gold);color:var(--gold)}
+.admin-body{padding:1.3rem 1.6rem}
+.admin-login h3{font-family:'Cormorant',serif;font-size:1.15rem;color:var(--ink);margin-bottom:1.1rem}
+.admin-tabs{display:flex;border-bottom:1px solid var(--sand);margin-bottom:1.1rem}.a-tab{background:none;border:none;border-bottom:2px solid transparent;padding:.65rem 1rem;font-size:.7rem;letter-spacing:1px;text-transform:uppercase;color:var(--muted);transition:all .2s}.a-tab.active{color:var(--ink);border-bottom-color:var(--gold)}
+.appt-card{background:var(--warm);border-radius:10px;padding:1rem 1.2rem;margin-bottom:.6rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.appt-card.pending{border-left:3px solid var(--gold)}
+.appt-name{font-weight:500;font-size:.88rem;color:var(--ink);margin-bottom:.12rem}.appt-meta{font-size:.72rem;color:var(--muted)}
+.appt-svc{font-size:.68rem;background:rgba(160,120,80,.1);color:var(--gold);padding:.15rem .55rem;border-radius:4px;display:inline-block;margin-top:.25rem}
+.appt-dt{font-family:'Cormorant',serif;font-size:1.15rem;color:var(--ink);text-align:right;white-space:nowrap}
+.appt-confirm{background:none;border:1px solid rgba(160,120,80,.3);color:var(--gold);border-radius:5px;padding:.28rem .55rem;font-size:.68rem;transition:all .2s;display:block;margin-top:.25rem}.appt-confirm:hover{background:rgba(160,120,80,.1)}
+.appt-del{background:none;border:1px solid rgba(184,100,90,.25);color:rgba(184,100,90,.6);border-radius:5px;padding:.28rem .55rem;font-size:.68rem;transition:all .2s;display:block;margin-top:.25rem}.appt-del:hover{border-color:var(--rose);color:var(--rose)}
+.status-badge{display:inline-block;font-size:.6rem;letter-spacing:1.5px;text-transform:uppercase;padding:.15rem .5rem;border-radius:3px;margin-left:.4rem}
+.status-pending{background:rgba(160,120,80,.12);color:var(--gold)}.status-confirmed{background:rgba(26,22,20,.06);color:var(--muted)}
+.pending-count{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;background:var(--gold);color:var(--cream);border-radius:50%;font-size:.62rem;font-weight:500;margin-left:.4rem;vertical-align:middle}
+.empty-msg{text-align:center;padding:2.5rem;color:var(--muted);font-style:italic;font-family:'Cormorant',serif;font-size:1.05rem}
+@keyframes aUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes fabF{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.spin{width:15px;height:15px;border:1.5px solid rgba(247,243,238,.2);border-top-color:var(--cream);border-radius:50%;animation:spin .6s linear infinite;display:inline-block;vertical-align:middle;margin-right:.4rem}
+@media(min-width:768px){
+  nav{padding:1.5rem 3rem}nav.solid{padding:1rem 3rem}
+  .nav-center{display:flex}.nav-book{display:block}.nav-burger{display:none}
+  #hero{flex-direction:row;min-height:88vh;max-height:92vh}
+  .hero-img-side{flex:1;height:auto;max-height:none;min-height:88vh}
+  .hero-img-badge{bottom:2.5rem;left:2.5rem}
+  .hero-body{flex:0 0 48%;padding:0 3.5rem 4rem 3.5rem;justify-content:center;display:flex;flex-direction:column}
+  .hero-h1{font-size:clamp(3.8rem,5.5vw,6.5rem)}
+  .hero-actions{flex-direction:row;align-items:center}.btn-dark,.btn-ghost{width:auto}
+  #o-nama{grid-template-columns:1fr 1fr;min-height:500px}.about-img{height:auto}.about-text{padding:4.5rem 3.5rem 4.5rem 4rem;display:flex;flex-direction:column;justify-content:center}
+  .usluge-scroll{padding:0 3rem 1.5rem}.usluga-card{flex:0 0 300px}.scroll-hint{display:none}
+  .radno-grid{grid-template-columns:repeat(3,1fr)}
+  #radno{padding:6rem 3rem}
+  #rezervacija{padding:6rem 3rem}.rez-grid{grid-template-columns:1fr 1fr;gap:2.5rem}
+  #kontakt{padding:6rem 3rem}.kontakt-grid{grid-template-columns:repeat(2,1fr)}
+  footer{flex-direction:row;justify-content:space-between;text-align:left;padding:2rem 3rem}
+  .admin-wrap{margin:2rem auto}.fab{bottom:2rem;right:2rem}.admin-btn{bottom:2rem;left:2rem}
+}
+@media(min-width:1024px){
+  .usluga-card{flex:0 0 320px}#rezervacija{padding:7rem 4rem}#kontakt{padding:7rem 4rem}
+  .kontakt-grid{grid-template-columns:repeat(4,1fr)}footer{padding:2rem 4rem}
+}
+</style>
+</head>
+<body>
+<div id="sp"></div>
+<div class="nav-overlay" id="navOv" onclick="closeNav()"></div>
+<div class="nav-drawer" id="navDrawer">
+  <a href="#o-nama" onclick="closeNav()">O salonu</a>
+  <a href="#usluge" onclick="closeNav()">Usluge</a>
+  <a href="#radno" onclick="closeNav()">Radno vrijeme</a>
+  <a href="#rezervacija" onclick="closeNav()">Rezervacija</a>
+  <a href="#kontakt" onclick="closeNav()">Kontakt</a>
+  <a href="#rezervacija" class="drawer-book" onclick="closeNav()">Rezerviraj termin</a>
+</div>
+<nav id="nav">
+  <a href="#" class="nav-logo">Desire <em>Salon</em></a>
+  <ul class="nav-center">
+    <li><a href="#o-nama">O salonu</a></li><li><a href="#usluge">Usluge</a></li>
+    <li><a href="#radno">Radno</a></li><li><a href="#rezervacija">Rezervacija</a></li><li><a href="#kontakt">Kontakt</a></li>
+  </ul>
+  <button class="nav-book" onclick="scrollTo({top:document.getElementById('rezervacija').offsetTop-80,behavior:'smooth'})">Rezerviraj</button>
+  <button class="nav-burger" id="burger" onclick="toggleNav()"><span></span><span></span><span></span></button>
+</nav>
+
+<section id="hero">
+  <div class="hero-img-side" id="heroSlider">
+    <img class="active" src="/photos/waves-ombre.jpg"       alt="Valovi — Desire Salon">
+    <img               src="/photos/updo.jpg"               alt="Svečana frizura — Desire Salon">
+    <img               src="/photos/balayage-waves.jpg"     alt="Balayage — Desire Salon">
+    <img               src="/photos/highlights-straight.jpg" alt="Pramenovi — Desire Salon">
+    <img               src="/photos/blonde-waves.jpg"       alt="Plava kosa — Desire Salon">
+    <div class="slide-dots" id="slideDots"></div>
+    <div class="hero-img-badge"><div class="hib-n">Desire</div><div class="hib-l">Središće, Zagreb</div></div>
+  </div>
+  <div class="hero-body">
+    <div class="hero-tag"><div class="tl"></div><span>Frizerski salon · Središće, Zagreb</span></div>
+    <h1 class="hero-h1">Tvoj savršen<br>dan počinje<br><em>ovdje.</em></h1>
+    <div class="hero-svcs">
+      <span>Boja</span><div class="dot"></div><span>Pramenovi</span><div class="dot"></div>
+      <span>Valovi</span><div class="dot"></div><span>Svečane</span><div class="dot"></div><span>Šišanje</span>
+    </div>
+    <div class="hero-actions">
+      <button class="btn-dark" onclick="scrollTo({top:document.getElementById('rezervacija').offsetTop-80,behavior:'smooth'})">Rezerviraj termin →</button>
+      <a href="#usluge" class="btn-ghost">Naše usluge</a>
+    </div>
+    <div class="hero-nums">
+      <div class="hnum"><div class="n">100<sup>%</sup></div><div class="l">Preporuka</div></div>
+      <div class="hnum"><div class="n" data-count="17">0<sup>+</sup></div><div class="l">Recenzija</div></div>
+      <div class="hnum"><div class="n">5.0<sup>★</sup></div><div class="l">Ocjena</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker"><div class="ticker-track" id="tt">
+  <span class="ticker-item">Žensko šišanje</span><span class="ticker-item">Muško šišanje</span>
+  <span class="ticker-item">Bojanje kose</span><span class="ticker-item">Pramenovi</span>
+  <span class="ticker-item">Balayage</span><span class="ticker-item">Valovi</span>
+  <span class="ticker-item">Trajna ondulacija</span><span class="ticker-item">Svečane frizure</span>
+  <span class="ticker-item">Yodeyma parfemi</span>
+</div></div>
+
+<section id="o-nama">
+  <div class="about-img" data-reveal="scale">
+    <img src="/photos/salon-interior.jpg" alt="Frizerski salon Desire — interijer">
+    <div class="about-year"><div class="y">100%</div><div class="yl">Preporuka</div></div>
+  </div>
+  <div class="about-text">
+    <div class="tag-pill" data-reveal="up"><div class="tl"></div><span>O salonu</span></div>
+    <h2 data-reveal="up" data-delay="1">Ivana Bjelan<br>i tim koji<br><em>zna kosu.</em></h2>
+    <p data-reveal="up" data-delay="2">Frizerski salon Desire nalazi se u srcu Središća, na Vojina Bakića 12 — korak od stanice Bundek. Radimo žensko i muško frizerstvo s punom pažnjom prema svakom klijentu.</p>
+    <p data-reveal="up" data-delay="3">17 recenzija, 100% preporuka na Facebooku. To govori samo za sebe.</p>
+    <div class="about-feats" data-reveal="up" data-delay="4">
+      <div class="afeat">Žensko i muško frizerstvo</div>
+      <div class="afeat">Boja, pramenovi, balayage, valovi</div>
+      <div class="afeat">Svečane i svatovske frizure</div>
+      <div class="afeat">Yodeyma parfemi u ponudi</div>
+    </div>
+  </div>
+</section>
+
+<section id="usluge">
+  <div class="usluge-header">
+    <div class="tag-pill" data-reveal="up"><div class="tl"></div><span>Što nudimo</span></div>
+    <h2 data-reveal="up" data-delay="1">Sve što tvoja<br>kosa <em>treba.</em></h2>
+  </div>
+  <div class="usluge-scroll">
+    <div class="usluga-card"><div class="uc-num">01</div><span class="uc-icon">✂️</span><h3>Šišanje & Styling</h3><p>Žensko i muško šišanje, feniranje, finishing. Svježi look koji traje.</p></div>
+    <div class="usluga-card"><div class="uc-num">02</div><span class="uc-icon">🎨</span><h3>Bojanje kose</h3><p>Cijela boja, osvježavanje korijena, blajhanje. Boja koja potraje.</p></div>
+    <div class="usluga-card"><div class="uc-num">03</div><span class="uc-icon">✨</span><h3>Pramenovi & Balayage</h3><p>Klasični pramenovi, balayage, ombre, california — prirodan prijelaz ili dramatičan kontrast.</p></div>
+    <div class="usluga-card"><div class="uc-num">04</div><span class="uc-icon">🌊</span><h3>Valovi & Trajna</h3><p>Trajna ondulacija, oblikovanje valova, keratin tretmani. Kosa kakvu si željela.</p></div>
+    <div class="usluga-card"><div class="uc-num">05</div><span class="uc-icon">👰</span><h3>Svečane frizure</h3><p>Punđe, pletenice, svečani updo, svatovske frizure. Za tvoj najvažniji dan.</p></div>
+    <div class="usluga-card"><div class="uc-num">06</div><span class="uc-icon">🌸</span><h3>Yodeyma parfemi</h3><p>Ekskluzivni Yodeyma parfemi dostupni u salonu. Miris koji ostaje u sjećanju.</p></div>
+  </div>
+  <p class="scroll-hint">Povuci za više</p>
+</section>
+
+<section id="radno">
+  <div class="tag-pill" data-reveal="up"><div class="tl"></div><span>Radno vrijeme</span></div>
+  <h2 style="font-family:'Cormorant',serif;font-size:clamp(2rem,7vw,3rem);font-weight:300;letter-spacing:-.5px;color:var(--ink);margin-bottom:.5rem" data-reveal="up" data-delay="1">Kad smo <em>tu za tebe.</em></h2>
+  <p style="font-size:.85rem;color:var(--ink2);margin-bottom:0" data-reveal="up" data-delay="2">Subota po dogovoru — nazovi ili rezerviraj online.</p>
+  <div class="radno-grid" id="radnoGrid"></div>
+</section>
+
+<section id="rezervacija">
+  <div class="rez-header" data-reveal="up">
+    <h2>Rezerviraj <em>termin</em><br>kod Ivane.</h2>
+    <p>Online rezervacija — odaberi datum, upiši se i vidimo se! ✨</p>
+  </div>
+  <div class="rez-grid">
+    <div data-reveal="left">
+      <div class="cal-wrap">
+        <div class="cal-head"><button class="cal-arrow" id="prevM">‹</button><h4 id="calTitle"></h4><button class="cal-arrow" id="nextM">›</button></div>
+        <div class="cal-grid" id="calGrid"></div>
+        <div id="slotsSection" style="display:none"><div class="slots-section"><div class="slots-label">Slobodni termini</div><div class="slots-grid" id="slotsGrid"></div></div></div>
+      </div>
+    </div>
+    <div data-reveal="right">
+      <div class="book-form-wrap" id="bformWrap">
+        <h3>Rezerviraj termin</h3><p class="form-sub">Ispuni podatke i potvrdi rezervaciju.</p>
+        <div class="sel-badge" id="selBadge"></div>
+        <div class="fg"><label>Ime i prezime *</label><input type="text" id="bName" placeholder="Ana Horvat"></div>
+        <div class="fg"><label>Telefon *</label><input type="tel" id="bPhone" placeholder="091 234 5678"></div>
+        <div class="fg"><label>Email</label><input type="email" id="bEmail" placeholder="ana@email.com"></div>
+        <div class="fg"><label>Usluga *</label>
+          <select id="bService">
+            <option value="">— Odaberi uslugu —</option>
+            <option>Žensko šišanje & feniranje</option>
+            <option>Muško šišanje</option>
+            <option>Bojanje kose (cijela boja)</option>
+            <option>Osvježavanje korijena</option>
+            <option>Pramenovi / Balayage</option>
+            <option>Trajna ondulacija</option>
+            <option>Svečana / svatovska frizura</option>
+            <option>Konzultacija</option>
+          </select>
+        </div>
+        <div class="fg"><label>Napomena</label><textarea id="bNote" placeholder="Posebni zahtjevi..."></textarea></div>
+        <button class="submit-btn" id="bookBtn" onclick="submitBooking()">Potvrdi rezervaciju →</button>
+        <p style="font-size:.65rem;color:var(--sand);margin-top:.6rem;text-align:center">Odaberi datum i termin iz kalendara</p>
+      </div>
+      <div class="book-ok" id="bookOk"><div class="icon">✦</div><h4>Rezervacija zaprimljena!</h4><p id="okMsg">Ivana će je uskoro potvrditi.</p><button onclick="resetBooking()">Nova rezervacija</button></div>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt">
+  <div class="tag-pill" data-reveal="up"><div class="tl"></div><span>Pronađi nas</span></div>
+  <h2 class="kontakt-h" data-reveal="up" data-delay="1">Dođi nas<br><em>posjetiti.</em></h2>
+  <div class="kontakt-grid">
+    <div class="kcard" data-reveal="up" data-delay="1"><div class="kcard-ic">📍</div><div><div class="kcard-label">Adresa</div><div class="kcard-val">Vojina Bakića 12<br>10000 Zagreb — Središće</div></div></div>
+    <div class="kcard" data-reveal="up" data-delay="2"><div class="kcard-ic">📞</div><div><div class="kcard-label">Telefon</div><div class="kcard-val"><a href="tel:+385915169545">091 516 9545</a></div></div></div>
+    <div class="kcard" data-reveal="up" data-delay="3"><div class="kcard-ic">✉️</div><div><div class="kcard-label">Email</div><div class="kcard-val"><a href="mailto:fsalon.desire@gmail.com">fsalon.desire@gmail.com</a></div></div></div>
+    <div class="kcard" data-reveal="up" data-delay="4"><div class="kcard-ic">📘</div><div><div class="kcard-label">Facebook</div><div class="kcard-val"><a href="https://www.facebook.com/profile.php?id=100054498337635" target="_blank">Frizerski salon Desire</a></div></div></div>
+  </div>
+  <div class="map-box" data-reveal="up" data-delay="2">
+    <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=15.9700%2C45.7970%2C15.9740%2C45.7990&layer=mapnik&marker=45.7980%2C15.9720" loading="lazy"></iframe>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo">Desire <em>Salon</em></div>
+  <div class="foot-copy">© 2025 Frizerski salon Desire · Ivana Bjelan · Vojina Bakića 12, Zagreb · 091 516 9545</div>
+  <div class="foot-links"><a href="#usluge">Usluge</a><a href="#rezervacija">Rezervacija</a><a href="#kontakt">Kontakt</a><a href="https://www.facebook.com/profile.php?id=100054498337635" target="_blank">Facebook</a></div>
+</footer>
+
+<a href="tel:+385915169545" class="fab">📞</a>
+<button class="admin-btn" onclick="openAdmin()">⚙️</button>
+
+<div id="admin-panel">
+  <div class="admin-wrap">
+    <div class="admin-head"><h2>✦ Admin · Desire Salon</h2><button class="admin-x" onclick="closeAdmin()">✕</button></div>
+    <div class="admin-body">
+      <div id="adminLogin"><h3>Prijava vlasnice</h3>
+        <div class="fg"><label>Lozinka</label><input type="password" id="adminPass" placeholder="••••••••" onkeydown="if(event.key==='Enter')adminAuth()"></div>
+        <button onclick="adminAuth()" style="width:100%;background:var(--ink);color:var(--cream);border:none;border-radius:8px;padding:.78rem;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;margin-top:.4rem">Prijavi se</button>
+        <p id="adminErr" style="color:var(--rose);font-size:.75rem;margin-top:.4rem;display:none">Pogrešna lozinka</p>
+      </div>
+      <div id="adminDash" style="display:none">
+        <div class="admin-tabs">
+          <button class="a-tab" id="tabPending" onclick="showAdminTab('pending')">Na čekanju <span class="pending-count" id="pendingCnt" style="display:none">0</span></button>
+          <button class="a-tab active" onclick="showAdminTab('today')">Danas</button>
+          <button class="a-tab" onclick="showAdminTab('upcoming')">Nadolazeći</button>
+          <button class="a-tab" onclick="showAdminTab('all')">Svi</button>
+        </div>
+        <div id="adminAppts"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('sp').style.width=(scrollY/(document.body.scrollHeight-innerHeight)*100)+'%';
+  document.getElementById('nav').classList.toggle('solid',scrollY>60);
+},{passive:true});
+const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target)}});},{threshold:.1});
+document.querySelectorAll('[data-reveal]').forEach(el=>ro.observe(el));
+document.querySelectorAll('[data-count]').forEach(el=>{const t=+el.dataset.count,s=el.querySelector('sup')?.outerHTML||'';let c=0,st=Math.ceil(t/60);const i=setInterval(()=>{c=Math.min(c+st,t);el.innerHTML=c+s;if(c>=t)clearInterval(i)},25);});
+const tt=document.getElementById('tt');tt.innerHTML+=tt.innerHTML;
+
+// NAV
+function toggleNav(){const b=document.getElementById('burger'),d=document.getElementById('navDrawer'),o=document.getElementById('navOv');b.classList.toggle('active');d.classList.toggle('open');o.classList.toggle('show');document.body.style.overflow=d.classList.contains('open')?'hidden':'';}
+function closeNav(){document.getElementById('burger').classList.remove('active');document.getElementById('navDrawer').classList.remove('open');document.getElementById('navOv').classList.remove('show');document.body.style.overflow='';}
+window.addEventListener('resize',()=>{if(window.innerWidth>=768)closeNav()});
+
+// SLIDESHOW
+(function(){
+  const slider=document.getElementById('heroSlider');
+  if(!slider)return;
+  const imgs=slider.querySelectorAll('img');
+  const dotsWrap=document.getElementById('slideDots');
+  let cur=0,timer;
+  imgs.forEach((_,i)=>{const d=document.createElement('div');d.className='slide-dot'+(i===0?' active':'');d.onclick=()=>goTo(i);dotsWrap.appendChild(d);});
+  function goTo(n){imgs[cur].classList.remove('active');dotsWrap.children[cur].classList.remove('active');cur=(n+imgs.length)%imgs.length;imgs[cur].classList.add('active');dotsWrap.children[cur].classList.add('active');resetTimer();}
+  function resetTimer(){clearInterval(timer);timer=setInterval(()=>goTo(cur+1),3000);}
+  let sx=0;
+  slider.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;},{passive:true});
+  slider.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)goTo(dx<0?cur+1:cur-1);},{passive:true});
+  resetTimer();
+})();
+
+// RADNO VRIJEME — specifično za Desire
+// Pon/Sri/Pet: 8:00-14:00 | Uto/Čet: 14:00-20:00 | Sub: po dogovoru | Ned: zatvoreno
+const RADNO_DESIRE = {
+  1:{od:'08:00',do:'13:30',label:'Ponedjeljak'},
+  2:{od:'14:00',do:'19:30',label:'Utorak'},
+  3:{od:'08:00',do:'13:30',label:'Srijeda'},
+  4:{od:'14:00',do:'19:30',label:'Četvrtak'},
+  5:{od:'08:00',do:'13:30',label:'Petak'},
+  6:{special:'Po dogovoru',label:'Subota'},
+  0:null
+};
+const RADNO_DISPLAY=[
+  {day:1,label:'Ponedjeljak',time:'8:00 – 14:00'},{day:3,label:'Srijeda',time:'8:00 – 14:00'},
+  {day:5,label:'Petak',time:'8:00 – 14:00'},{day:2,label:'Utorak',time:'14:00 – 20:00'},
+  {day:4,label:'Četvrtak',time:'14:00 – 20:00'},{day:6,label:'Subota',time:'Po dogovoru'},
+];
+const todayDow=new Date().getDay();
+const radnoGrid=document.getElementById('radnoGrid');
+RADNO_DISPLAY.forEach(({day,label,time})=>{
+  const isToday=day===todayDow;
+  const isClosed=!RADNO_DESIRE[day];
+  radnoGrid.innerHTML+=`<div class="radno-card${isToday?' today':''}">
+    <div class="radno-day">${label}${isToday?' <span class="radno-badge">Danas</span>':''}</div>
+    <div class="radno-time${isClosed?' closed':''}">${time}</div>
+  </div>`;
+});
+
+function getSlotsForDay(dow){
+  const r=RADNO_DESIRE[dow];
+  if(!r||r.special)return[];
+  const all=[];let h=parseInt(r.od),m=parseInt(r.od.split(':')[1]||0);
+  const[endH,endM]=r.do.split(':').map(Number);
+  while(h<endH||(h===endH&&m<=endM)){all.push(`${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`);m+=30;if(m>=60){m-=60;h++;}}
+  return all;
+}
+
+// CALENDAR
+let cY=new Date().getFullYear(),cM=new Date().getMonth(),selDate=null,selTime=null,takenSlots={};
+async function getSlots(d){if(takenSlots[d]!==undefined)return takenSlots[d];try{const r=await fetch(`/api/appointments?view=slots&date=${d}`);takenSlots[d]=(await r.json()).slots||[];}catch{takenSlots[d]=[]}return takenSlots[d];}
+function renderCal(){
+  const months=['Siječanj','Veljača','Ožujak','Travanj','Svibanj','Lipanj','Srpanj','Kolovoz','Rujan','Listopad','Studeni','Prosinac'],days=['Pon','Uto','Sri','Čet','Pet','Sub','Ned'];
+  document.getElementById('calTitle').textContent=`${months[cM]} ${cY}`;
+  const g=document.getElementById('calGrid');g.innerHTML=days.map(d=>`<div class="cal-dname">${d}</div>`).join('');
+  const first=new Date(cY,cM,1);let dow=(first.getDay()+6)%7;for(let i=0;i<dow;i++)g.innerHTML+=`<div class="cal-day empty"></div>`;
+  const total=new Date(cY,cM+1,0).getDate(),today=new Date();
+  for(let d=1;d<=total;d++){
+    const dt=new Date(cY,cM,d),past=dt<new Date(today.getFullYear(),today.getMonth(),today.getDate()),isT=dt.toDateString()===today.toDateString(),ds=`${cY}-${String(cM+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`,sel=ds===selDate;
+    const dow2=dt.getDay(),r=RADNO_DESIRE[dow2],isClosed=!r;
+    const clickable=!past&&!isClosed;
+    g.innerHTML+=`<div class="cal-day${past?' past':''}${isT?' today':''}${sel?' selected':''}${isClosed&&!past?' closed':''}" data-date="${ds}" onclick="${clickable?'selectDate(\''+ds+'\')':''}">${d}</div>`;
+  }
+  refreshDots();
+}
+async function refreshDots(){
+  for(const el of document.querySelectorAll('.cal-day[data-date]:not(.past):not(.closed)')){
+    const[y,m,d]=el.dataset.date.split('-'),dow=new Date(y,m-1,d).getDay();
+    const dayTotal=getSlotsForDay(dow).length;if(!dayTotal)continue;
+    const t=await getSlots(el.dataset.date);
+    if(t.length>=dayTotal)el.classList.add('full');else if(t.length>0)el.classList.add('has-slots');
+  }
+}
+async function selectDate(ds){
+  selDate=ds;selTime=null;document.getElementById('selBadge').style.display='none';renderCal();
+  const taken=await getSlots(ds);
+  const sec=document.getElementById('slotsSection'),sg=document.getElementById('slotsGrid');sec.style.display='block';
+  const[y,m,d]=ds.split('-'),dow=new Date(y,m-1,d).getDay(),r=RADNO_DESIRE[dow];
+  if(!r){sg.innerHTML='<p style="font-size:.78rem;color:var(--muted);grid-column:1/-1;text-align:center">Zatvoreno</p>';return;}
+  if(r.special){sg.innerHTML='<p style="font-size:.78rem;color:var(--muted);grid-column:1/-1;text-align:center;padding:.5rem">📞 Subota po dogovoru — nazovi 091 516 9545</p>';return;}
+  const now=new Date(),todayStr=`${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
+  const isToday=ds===todayStr,nowMins=now.getHours()*60+now.getMinutes()+30;
+  const daySlots=getSlotsForDay(dow);
+  const avail=isToday?daySlots.filter(s=>{const[sh,sm]=s.split(':').map(Number);return sh*60+sm>nowMins;}):daySlots;
+  if(!avail.length){sg.innerHTML='<p style="font-size:.78rem;color:var(--muted);grid-column:1/-1;text-align:center;padding:.5rem">Nema više slobodnih termina</p>';return;}
+  sg.innerHTML=avail.map(s=>`<div class="slot${taken.includes(s)?' taken':''}" onclick="${taken.includes(s)?'':'selectSlot(\''+s+'\')'}">  ${s}</div>`).join('');
+}
+function selectSlot(t){selTime=t;document.querySelectorAll('.slot').forEach(s=>s.classList.toggle('selected',s.textContent.trim()===t));const[y,m,d]=selDate.split('-'),lbl=new Date(y,m-1,d).toLocaleDateString('hr-HR',{weekday:'long',day:'numeric',month:'long'});const b=document.getElementById('selBadge');b.style.display='block';b.textContent=`✦ ${lbl} u ${t}`;}
+document.getElementById('prevM').onclick=()=>{cM--;if(cM<0){cM=11;cY--;}renderCal()};
+document.getElementById('nextM').onclick=()=>{cM++;if(cM>11){cM=0;cY++;}renderCal()};
+renderCal();
+
+// BOOKING
+async function submitBooking(){
+  const name=document.getElementById('bName').value.trim(),phone=document.getElementById('bPhone').value.trim(),email=document.getElementById('bEmail').value.trim(),service=document.getElementById('bService').value,note=document.getElementById('bNote').value.trim();
+  if(!name||!phone||!service)return alert('Molimo ispunite ime, telefon i uslugu.');
+  if(!selDate||!selTime)return alert('Molimo odaberite datum i termin iz kalendara.');
+  const btn=document.getElementById('bookBtn');btn.disabled=true;btn.innerHTML='<span class="spin"></span>Rezerviram...';
+  try{
+    const r=await fetch('/api/appointments',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,phone,email,service,date:selDate,time:selTime,note})});
+    const data=await r.json();if(!r.ok)throw new Error(data.error||'Greška');
+    if(!takenSlots[selDate])takenSlots[selDate]=[];takenSlots[selDate].push(selTime);
+    const[y,m,d]=selDate.split('-'),lbl=new Date(y,m-1,d).toLocaleDateString('hr-HR',{weekday:'long',day:'numeric',month:'long'});
+    document.getElementById('okMsg').textContent=`${name}, vidimo se ${lbl} u ${selTime}. ✦`;
+    document.getElementById('bformWrap').style.display='none';document.getElementById('bookOk').style.display='block';renderCal();
+  }catch(e){alert(e.message);btn.disabled=false;btn.textContent='Potvrdi rezervaciju →';}
+}
+function resetBooking(){selDate=null;selTime=null;['bName','bPhone','bEmail','bNote'].forEach(id=>document.getElementById(id).value='');document.getElementById('bService').value='';document.getElementById('bformWrap').style.display='block';document.getElementById('bookOk').style.display='none';document.getElementById('bookBtn').disabled=false;document.getElementById('bookBtn').textContent='Potvrdi rezervaciju →';document.getElementById('slotsSection').style.display='none';document.getElementById('selBadge').style.display='none';renderCal();}
+
+// ADMIN
+let adminKey='',allAppts=[];
+function openAdmin(){document.getElementById('admin-panel').style.display='block';document.body.style.overflow='hidden';}
+function closeAdmin(){document.getElementById('admin-panel').style.display='none';document.body.style.overflow='';}
+document.getElementById('admin-panel').addEventListener('click',e=>{if(e.target===document.getElementById('admin-panel'))closeAdmin();});
+async function adminAuth(){const pass=document.getElementById('adminPass').value;try{const r=await fetch('/api/appointments',{headers:{'x-admin-key':pass}});if(!r.ok)throw new Error();const data=await r.json();allAppts=data.appointments||[];adminKey=pass;document.getElementById('adminLogin').style.display='none';document.getElementById('adminDash').style.display='block';updatePendingCount();showAdminTab(allAppts.some(a=>a.status==='pending')?'pending':'today');}catch{document.getElementById('adminErr').style.display='block';}}
+function showAdminTab(tab){document.querySelectorAll('.a-tab').forEach((t,i)=>t.classList.toggle('active',['pending','today','upcoming','all'][i]===tab));const today=new Date().toISOString().split('T')[0];let list=tab==='pending'?allAppts.filter(a=>a.status==='pending'):tab==='today'?allAppts.filter(a=>a.date===today):tab==='upcoming'?allAppts.filter(a=>a.date>=today).slice(0,30):allAppts;renderAppts(list,tab);}
+function renderAppts(list,tab){const el=document.getElementById('adminAppts');if(!list.length){el.innerHTML=`<div class="empty-msg">Nema termina${tab==='today'?' za danas':tab==='pending'?' na čekanju':''}</div>`;return;}el.innerHTML=list.map(a=>{const isPending=a.status==='pending';return`<div class="appt-card${isPending?' pending':''}" id="ac-${a.id}"><div><div class="appt-name">${a.name}<span class="status-badge ${isPending?'status-pending':'status-confirmed'}">${isPending?'čeka':'potvrđeno'}</span></div><div class="appt-meta">📞 ${a.phone}${a.email?' · '+a.email:''}</div><div class="appt-svc">${a.service}</div>${a.note?`<div style="font-size:.68rem;color:var(--muted);margin-top:.2rem">💬 ${a.note}</div>`:''}</div><div><div class="appt-dt">${a.time}<br><span style="font-size:.68rem;color:var(--muted)">${a.date}</span></div>${isPending?`<button class="appt-confirm" onclick="confirmAppt('${a.id}')">✓ Potvrdi</button>`:''}<button class="appt-del" onclick="delAppt('${a.id}','${a.date}','${a.time}')">✕ Odbij</button></div></div>`}).join('');}
+function updatePendingCount(){const n=allAppts.filter(a=>a.status==='pending').length;const cnt=document.getElementById('pendingCnt');if(cnt){cnt.textContent=n;cnt.style.display=n>0?'inline-flex':'none';}}
+async function confirmAppt(id){const r=await fetch(`/api/appointments?id=${id}`,{method:'PATCH',headers:{'x-admin-key':adminKey}});if(r.ok){const appt=allAppts.find(a=>a.id===id);if(appt)appt.status='confirmed';const card=document.getElementById(`ac-${id}`);if(card){card.classList.remove('pending');card.querySelector('.status-badge').className='status-badge status-confirmed';card.querySelector('.status-badge').textContent='potvrđeno';card.querySelector('.appt-confirm')?.remove();}updatePendingCount();}}
+async function delAppt(id,date,time){if(!confirm(`Otkazati termin ${date} u ${time}?`))return;const r=await fetch(`/api/appointments?id=${id}`,{method:'DELETE',headers:{'x-admin-key':adminKey}});if(r.ok){document.getElementById(`ac-${id}`)?.remove();allAppts=allAppts.filter(a=>a.id!==id);if(takenSlots[date])takenSlots[date]=takenSlots[date].filter(s=>s!==time);refreshDots();updatePendingCount();}}
+</script>
+</body>
+</html>

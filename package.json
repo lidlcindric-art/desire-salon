@@ -1,0 +1,7 @@
+{
+  "name": "desire-salon",
+  "version": "1.0.0",
+  "description": "Frizerski salon Desire — Vojina Bakića 12, Središće Zagreb",
+  "engines": { "node": ">=18" },
+  "dependencies": { "@upstash/redis": "^1.34.0" }
+}
